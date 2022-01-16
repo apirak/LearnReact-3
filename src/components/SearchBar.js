@@ -1,19 +1,21 @@
 import React from "react";
 
 class SearchBar extends React.Component {
-  onInputChange(event){
-    console.log(event.target.value)
-  }
+  state = { term: "Hi there!" };
 
-  render(){
+  render() {
     return (
-      <div className="ui segment">
-        <from className="ui form">
-          <div className="field">
+      <div className='ui segment'>
+        <form className='ui form'>
+          <div className='field'>
             <label>Image Saerchearch</label>
-            <input type="text" onChange={this.onInputChange}></input>
+            <input
+              type='text'
+              value={this.state.term}
+              onChange={(e) => this.setState({ term: e.target.value })}
+            />
           </div>
-        </from>
+        </form>
       </div>
     );
   }
